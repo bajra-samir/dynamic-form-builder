@@ -14,7 +14,7 @@ export const renderFormElement = ({
   register,
   errors,
 }: RenderFormElementProps) => {
-  const { type, label, name, placeholder } = field;
+  const { type, label, name, placeholder, options } = field;
 
   switch (field.type) {
     case "textarea":
@@ -29,7 +29,12 @@ export const renderFormElement = ({
 
     case "select":
       return (
-        <Select label={label} register={register(name)} error={errors[name]} />
+        <Select
+          label={label}
+          register={register(name)}
+          error={errors[name]}
+          options={options}
+        />
       );
 
     default:
